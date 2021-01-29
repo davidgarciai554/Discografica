@@ -21,10 +21,12 @@ public class BBDDManager {
     Connection connect = null;
 
     public boolean connectionPool() {
+
         BasicDataSource bdSource = new BasicDataSource();
         bdSource.setUrl("jdbc:mysql://localhost:3306/discografia?serverTimezone=UTC");
         bdSource.setUsername("root");
         bdSource.setPassword("");
+        boolean connected=false;
         try {
             connect = bdSource.getConnection();
             if (connect != null) {
@@ -32,10 +34,10 @@ public class BBDDManager {
                 return true;
             } else {
                 System.out.println("Conexion no creada");
-                return false;
+                
             }
         } catch (Exception e) {
-            System.err.println("Error");
+
         }
         return false;
     }
@@ -67,11 +69,46 @@ public class BBDDManager {
     }
 
     public void deleteSong(String nameSong) {
-        Statement sta;
+        Statement sta;//UPDATE canciones SET nombre_cancion = 'newName' ,album=newAlbum,duracion_seg=newDuration WHERE nameSong like 'nameSong';
         try {
             sta = connect.createStatement();
-            sta.executeUpdate("Delete from canciones where nombre_cancion='"+nameSong+"';");
+            sta.executeUpdate("Delete from canciones where nombre_cancion='" + nameSong + "';");
             sta.close();
+        } catch (Exception e) {
+            System.err.println("No se pudo borrar la cancion");
+        }
+    }
+
+    public void updateSong(String nameSong, String newName, int newAlbum, String _newDuration) {
+        Statement sta;
+        String query = "UPDATE canciones SET";
+
+        boolean aux = false;
+        if (newName != "") {
+            query += " nombre_cancion = '" + newName + "' ";
+            aux = true;
+        } else if (newAlbum != 0) {
+            if (aux) {
+                query += ",";
+            }
+            query += " album='" + newAlbum + "' ";
+            aux = true;
+        } else if (_newDuration != "") {
+            if (aux) {
+                query += ",";
+            }
+            int newDuration = Integer.parseInt(_newDuration);
+            query += " duracion_seg='" + newDuration + "' ";
+            aux = true;
+        }
+        try {
+            if (aux) {
+                sta = connect.createStatement();
+                query += " WHERE nombre_cancion like '" + nameSong + "';";
+                System.out.println(query);
+                sta.executeUpdate(query);
+                sta.close();
+            }
         } catch (Exception e) {
             System.err.println("No se pudo borrar la cancion");
         }
@@ -102,7 +139,7 @@ public class BBDDManager {
             String query = "select c.* , a.* from canciones c inner join albumes a  on c.album = a.id_album WHERE a.nombre_album='" + _album + "'";
             ResultSet rs = sta.executeQuery(query);
             int i = 0;
-            while (rs.next()) {                
+            while (rs.next()) {
                 album += "Nombre: " + rs.getString("nombre_cancion") + "\n" + "Artista: " + rs.getString("artista") + "\n" + "Duracion: " + rs.getString("duracion_seg") + " seg. \n";
                 album += "---------------------------------------------\n";
             }
