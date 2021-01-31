@@ -70,6 +70,8 @@ public class main extends javax.swing.JFrame {
         songBox_delete = new javax.swing.JComboBox<>();
         deleteSongButton = new javax.swing.JButton();
 
+        addAlbumFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel1.setText("Nombre Album");
 
         jLabel2.setText("Artista");
@@ -130,6 +132,8 @@ public class main extends javax.swing.JFrame {
 
         date_addAlbum.getAccessibleContext().setAccessibleName("");
 
+        addSongFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jLabel4.setText("Nombre");
 
         jLabel5.setText("Album");
@@ -182,6 +186,8 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
+
+        alterSong.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel7.setText("Nuevo nombre");
 
@@ -238,9 +244,14 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(480, 400));
         setSize(new java.awt.Dimension(480, 400));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         connect.setText("Conectar");
@@ -269,7 +280,7 @@ public class main extends javax.swing.JFrame {
                 addAlbumButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addAlbumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 110, -1));
+        getContentPane().add(addAlbumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 110, -1));
 
         getContentPane().add(albumBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 69, -1));
 
@@ -295,7 +306,7 @@ public class main extends javax.swing.JFrame {
                 addSongButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 110, -1));
+        getContentPane().add(addSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 110, -1));
 
         updateSongButton.setText("Actualizar canción");
         updateSongButton.addActionListener(new java.awt.event.ActionListener() {
@@ -388,6 +399,11 @@ public class main extends javax.swing.JFrame {
         deleteComponents();
         putComponents();
     }//GEN-LAST:event_deleteSongButtonActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        manager.close();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosed
 
     public void putComponents() {
         //Añadimos todos los componentes que necesitamos de la base de datos 
