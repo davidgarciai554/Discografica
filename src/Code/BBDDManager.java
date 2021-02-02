@@ -22,7 +22,6 @@ public class BBDDManager {
     Connection connect = null;
 
     public boolean connectionPool() {
-
         BasicDataSource bdSource = new BasicDataSource();
         bdSource.setUrl("jdbc:mysql://localhost:3306/discografia?serverTimezone=UTC");
         bdSource.setUsername("root");
@@ -30,11 +29,10 @@ public class BBDDManager {
         boolean connected = false;
         try {
             connect = bdSource.getConnection();
-            if (connect != null) {
-                System.out.println("Conexion creada");
+            if (connect != null) { 
                 return true;
             } else {
-                System.out.println("Conexion no creada");
+                System.err.println("Conexion no creada");
 
             }
         } catch (Exception e) {
@@ -45,11 +43,9 @@ public class BBDDManager {
 
     public void close() {
         try {
-            System.err.print("");
             connect.close();
-            System.out.println("Desconectado!");
         } catch (Exception e) {
-            System.out.println("No se puede desconectar");
+            System.err.println("No se puede desconectar");
         }
     }
 
@@ -71,7 +67,7 @@ public class BBDDManager {
     }
 
     public void deleteSong(String nameSong) {
-        Statement sta;//UPDATE canciones SET nombre_cancion = 'newName' ,album=newAlbum,duracion_seg=newDuration WHERE nameSong like 'nameSong';
+        Statement sta;
         try {
             sta = connect.createStatement();
             sta.executeUpdate("Delete from canciones where nombre_cancion='" + nameSong + "';");
@@ -84,8 +80,9 @@ public class BBDDManager {
     public void updateSong(String nameSong, String newName, int newAlbum, String _newDuration) {
         Statement sta;
         String query = "UPDATE canciones SET";
+        // Vamos añadiendo los distintos valores que queremos cambiar con una flag para 
+        // que no nos de un error con la query
         boolean aux = false;
-        System.out.println(newName+" " + newAlbum+" "+ _newDuration);
         if (!newName.equals("")) {
             query += " nombre_cancion = '" + newName+"'";
             aux = true;
@@ -93,7 +90,6 @@ public class BBDDManager {
         if (newAlbum != 0) {
             if (aux) {
                 query += ",";
-                System.out.println("adiooos");
             }
             query += " album='" + newAlbum + "' ";
             aux = true;
@@ -111,7 +107,6 @@ public class BBDDManager {
                 sta = connect.createStatement();
                 
                 query += " WHERE nombre_cancion like '" + nameSong + "';";
-                System.out.println(query);
                 sta.executeUpdate(query);               
                 sta.close();
             }
@@ -152,7 +147,7 @@ public class BBDDManager {
             while (rs.next()) {
                 data[0][i] = rs.getString("nombre_cancion");
                 data[1][i] = rs.getString("artista");
-                data[2][i] = rs.getString("duracion_seg");
+                data[2][i] = rs.getString("duracion_seg")+" seg.";
                 i++;
             }
             return data;
@@ -164,7 +159,6 @@ public class BBDDManager {
     }
     
 //    public void addColumn(){
-//
 //        try{
 //            Statement sta =connect.createStatement();
 //            String query="";
@@ -198,10 +192,12 @@ public class BBDDManager {
     }
 
     public void createDataBase() {
+        //Ejecutamos todas las duncios 
         Statement sta;
         try {
             sta = connect.createStatement();
-            String[] query = {"DROP DATABASE IF EXISTS discografia;",
+            String[] query = {
+                "DROP DATABASE IF EXISTS discografia;",
                 "CREATE DATABASE discografia;",
                 "use discografia;",
                 "CREATE TABLE IF NOT EXISTS albumes ( id_album int(11) NOT NULL AUTO_INCREMENT ,  nombre_album varchar(255) NOT NULL, artista varchar(255) NOT NULL,  fechaSalida DATE NOT NULL,PRIMARY KEY (id_album));",
@@ -212,7 +208,6 @@ public class BBDDManager {
             for (int i = 0; i < query.length; i++) {
                 sta.executeUpdate(query[i]);
             }
-
             sta.close();
         } catch (Exception e) {
             System.err.println("No se pudo crear la base de datos");

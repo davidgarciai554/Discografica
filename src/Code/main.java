@@ -21,7 +21,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
-        deleteComponents();      
+        deleteComponents();
     }
 
     /**
@@ -57,8 +57,23 @@ public class main extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         newAlbum_alterSong = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jFrame1 = new javax.swing.JFrame();
+        connect1 = new javax.swing.JButton();
+        disconnect1 = new javax.swing.JButton();
+        addAlbumButton1 = new javax.swing.JButton();
+        albumBox1 = new javax.swing.JComboBox<>();
+        showSongs1 = new javax.swing.JButton();
+        restoreDatabaseButton1 = new javax.swing.JButton();
+        addSongButton1 = new javax.swing.JButton();
+        updateSongButton1 = new javax.swing.JButton();
+        songBox_update1 = new javax.swing.JComboBox<>();
+        songBox_delete1 = new javax.swing.JComboBox<>();
+        deleteSongButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         connect = new javax.swing.JButton();
         disconnect = new javax.swing.JButton();
         addAlbumButton = new javax.swing.JButton();
@@ -72,6 +87,9 @@ public class main extends javax.swing.JFrame {
         deleteSongButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
 
         addAlbumFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -136,7 +154,9 @@ public class main extends javax.swing.JFrame {
         date_addAlbum.getAccessibleContext().setAccessibleName("");
 
         addSongFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addSongFrame.setMinimumSize(new java.awt.Dimension(222, 138));
 
+        jLabel4.setBackground(new java.awt.Color(102, 255, 51));
         jLabel4.setText("Nombre");
 
         jLabel5.setText("Album");
@@ -156,19 +176,24 @@ public class main extends javax.swing.JFrame {
             addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addSongFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addSongFrameLayout.createSequentialGroup()
-                        .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameSong_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(durationSong_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(albumBox_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addSongFrameLayout.createSequentialGroup()
+                        .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(albumBox_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(addSongFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameSong_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addSongFrameLayout.createSequentialGroup()
+                                .addGroup(addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(7, 7, 7)
+                                .addComponent(durationSong_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         addSongFrameLayout.setVerticalGroup(
             addSongFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,17 +211,25 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(durationSong_addSong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         alterSong.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        alterSong.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setText("Nuevo nombre");
+        alterSong.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 16, 115, -1));
+        alterSong.getContentPane().add(newName_alterSong, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 13, 91, -1));
 
         jLabel8.setText("Nueva duracion");
+        alterSong.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 77, -1, -1));
+        alterSong.getContentPane().add(newDuration_alterSong, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 91, -1));
 
         jLabel9.setText("Nuevo album");
+        alterSong.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 45, 111, -1));
+
+        alterSong.getContentPane().add(newAlbum_alterSong, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 42, 91, -1));
 
         jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -204,66 +237,127 @@ public class main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        alterSong.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 103, 210, -1));
 
-        javax.swing.GroupLayout alterSongLayout = new javax.swing.GroupLayout(alterSong.getContentPane());
-        alterSong.getContentPane().setLayout(alterSongLayout);
-        alterSongLayout.setHorizontalGroup(
-            alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(alterSongLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(alterSongLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newDuration_alterSong, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(alterSongLayout.createSequentialGroup()
-                        .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newName_alterSong)
-                            .addComponent(newAlbum_alterSong, 0, 91, Short.MAX_VALUE)))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        alterSongLayout.setVerticalGroup(
-            alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(alterSongLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(newName_alterSong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(newAlbum_alterSong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(alterSongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(newDuration_alterSong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame1.setMinimumSize(new java.awt.Dimension(820, 450));
+        jFrame1.setPreferredSize(new java.awt.Dimension(820, 450));
+        jFrame1.setSize(new java.awt.Dimension(820, 450));
+        jFrame1.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                jFrame1formWindowClosed(evt);
+            }
+        });
+        jFrame1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        connect1.setText("Conectar");
+        connect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                connect1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(connect1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        disconnect1.setText("Desconectar");
+        disconnect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disconnect1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(disconnect1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        addAlbumButton1.setText("Añadir albúm");
+        addAlbumButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAlbumButton1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(addAlbumButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 140, -1));
+
+        albumBox1.setMinimumSize(new java.awt.Dimension(33, 32));
+        jFrame1.getContentPane().add(albumBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 150, 30));
+
+        showSongs1.setText("Enseñar canciones");
+        showSongs1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showSongs1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(showSongs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 140, 30));
+
+        restoreDatabaseButton1.setText("Restaurar base de datos");
+        restoreDatabaseButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restoreDatabaseButton1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(restoreDatabaseButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 250, -1));
+
+        addSongButton1.setText("Añadir canción");
+        addSongButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSongButton1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(addSongButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 140, -1));
+
+        updateSongButton1.setText("Actualizar canción");
+        updateSongButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateSongButton1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(updateSongButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 140, 30));
+
+        songBox_update1.setMinimumSize(new java.awt.Dimension(33, 32));
+        jFrame1.getContentPane().add(songBox_update1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, 30));
+
+        songBox_delete1.setMinimumSize(new java.awt.Dimension(33, 32));
+        jFrame1.getContentPane().add(songBox_delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 150, 30));
+
+        deleteSongButton1.setText("Borrar canción");
+        deleteSongButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteSongButton1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(deleteSongButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 140, 30));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre cancion", "Artista", "Duracion"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jTable3);
+
+        jFrame1.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 450, 310));
+        jFrame1.getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 310, 10));
+        jFrame1.getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 310, 10));
+        jFrame1.getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 310, 10));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(775, 450));
-        setPreferredSize(new java.awt.Dimension(775, 450));
-        setSize(new java.awt.Dimension(775, 450));
+        setMinimumSize(new java.awt.Dimension(820, 450));
+        setPreferredSize(new java.awt.Dimension(820, 450));
+        setSize(new java.awt.Dimension(820, 450));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -277,7 +371,7 @@ public class main extends javax.swing.JFrame {
                 connectActionPerformed(evt);
             }
         });
-        getContentPane().add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        getContentPane().add(connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         disconnect.setText("Desconectar");
         disconnect.addActionListener(new java.awt.event.ActionListener() {
@@ -285,7 +379,7 @@ public class main extends javax.swing.JFrame {
                 disconnectActionPerformed(evt);
             }
         });
-        getContentPane().add(disconnect, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 11, -1, -1));
+        getContentPane().add(disconnect, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         addAlbumButton.setText("Añadir albúm");
         addAlbumButton.addActionListener(new java.awt.event.ActionListener() {
@@ -293,10 +387,10 @@ public class main extends javax.swing.JFrame {
                 addAlbumButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addAlbumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 110, -1));
+        getContentPane().add(addAlbumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 140, -1));
 
         albumBox.setMinimumSize(new java.awt.Dimension(33, 32));
-        getContentPane().add(albumBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 110, 30));
+        getContentPane().add(albumBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 150, 30));
 
         showSongs.setText("Enseñar canciones");
         showSongs.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +398,7 @@ public class main extends javax.swing.JFrame {
                 showSongsActionPerformed(evt);
             }
         });
-        getContentPane().add(showSongs, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 140, -1));
+        getContentPane().add(showSongs, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 140, 30));
 
         restoreDatabaseButton.setText("Restaurar base de datos");
         restoreDatabaseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -312,7 +406,7 @@ public class main extends javax.swing.JFrame {
                 restoreDatabaseButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(restoreDatabaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 250, -1));
+        getContentPane().add(restoreDatabaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 250, -1));
 
         addSongButton.setText("Añadir canción");
         addSongButton.addActionListener(new java.awt.event.ActionListener() {
@@ -320,7 +414,7 @@ public class main extends javax.swing.JFrame {
                 addSongButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 110, -1));
+        getContentPane().add(addSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 140, -1));
 
         updateSongButton.setText("Actualizar canción");
         updateSongButton.addActionListener(new java.awt.event.ActionListener() {
@@ -328,13 +422,13 @@ public class main extends javax.swing.JFrame {
                 updateSongButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(updateSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 140, 30));
+        getContentPane().add(updateSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 140, 30));
 
         songBox_update.setMinimumSize(new java.awt.Dimension(33, 32));
-        getContentPane().add(songBox_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 120, 110, 30));
+        getContentPane().add(songBox_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, 30));
 
         songBox_delete.setMinimumSize(new java.awt.Dimension(33, 32));
-        getContentPane().add(songBox_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 170, 110, 30));
+        getContentPane().add(songBox_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 150, 30));
 
         deleteSongButton.setText("Borrar canción");
         deleteSongButton.addActionListener(new java.awt.event.ActionListener() {
@@ -342,7 +436,7 @@ public class main extends javax.swing.JFrame {
                 deleteSongButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 140, 30));
+        getContentPane().add(deleteSongButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 140, 30));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -371,6 +465,9 @@ public class main extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 450, 310));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 310, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 310, 10));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 310, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -422,17 +519,19 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_addSongButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        addSongFrame.setVisible(false);
-        manager.addSong(nameSong_addSong.getText(), albumBox_addSong.getSelectedIndex(), parseInt(durationSong_addSong.getText()));
-        deleteComponents();
-        putComponents();
-
+        if (nameSong_addSong.getText().equals("") || albumBox_addSong.getSelectedIndex() == 0 || durationSong_addSong.getText().equals("")) {
+            System.out.println(nameSong_addSong.getText()+","+albumBox_addSong.getSelectedIndex()+","+durationSong_addSong.getText());
+            addSongFrame.setVisible(false);
+            manager.addSong(nameSong_addSong.getText(), albumBox_addSong.getSelectedIndex(), parseInt(durationSong_addSong.getText()));
+            deleteComponents();
+            putComponents();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void updateSongButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSongButtonActionPerformed
         if (songBox_update.getSelectedIndex() != 0) {
             alterSong.setVisible(true);
-            alterSong.setSize(220, 180);
+            alterSong.setSize(242, 145);
         }
 
     }//GEN-LAST:event_updateSongButtonActionPerformed
@@ -454,6 +553,42 @@ public class main extends javax.swing.JFrame {
         manager.close();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosed
+
+    private void connect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_connect1ActionPerformed
+
+    private void disconnect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disconnect1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disconnect1ActionPerformed
+
+    private void addAlbumButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAlbumButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addAlbumButton1ActionPerformed
+
+    private void showSongs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSongs1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showSongs1ActionPerformed
+
+    private void restoreDatabaseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restoreDatabaseButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_restoreDatabaseButton1ActionPerformed
+
+    private void addSongButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addSongButton1ActionPerformed
+
+    private void updateSongButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSongButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateSongButton1ActionPerformed
+
+    private void deleteSongButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSongButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteSongButton1ActionPerformed
+
+    private void jFrame1formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jFrame1formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFrame1formWindowClosed
 
     public void putComponents() {
         //Añadimos todos los componentes que necesitamos de la base de datos 
@@ -508,11 +643,11 @@ public class main extends javax.swing.JFrame {
             songBox_delete.removeItemAt(i);
         }
         try {
-            for (int i = 0; i < jTable2.getRowCount()*jTable2.getRowCount(); i++) {
+            for (int i = 0; i < jTable2.getRowCount() * jTable2.getRowCount(); i++) {
                 for (int j = 0; j < jTable2.getColumnCount(); j++) {
                     jTable2.getModel().setValueAt("", i, j);
                 }
-            }   
+            }
         } catch (Exception e) {
         }
 
@@ -555,22 +690,29 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAlbumButton;
+    private javax.swing.JButton addAlbumButton1;
     private javax.swing.JFrame addAlbumFrame;
     private javax.swing.JButton addSongButton;
+    private javax.swing.JButton addSongButton1;
     private javax.swing.JFrame addSongFrame;
     private javax.swing.JComboBox<String> albumBox;
+    private javax.swing.JComboBox<String> albumBox1;
     private javax.swing.JComboBox<String> albumBox_addSong;
     private javax.swing.JTextField albumName_addAlbum;
     private javax.swing.JFrame alterSong;
     private javax.swing.JTextField artist_addAlbum;
     private javax.swing.JButton connect;
+    private javax.swing.JButton connect1;
     private javax.swing.JTextField date_addAlbum;
     private javax.swing.JButton deleteSongButton;
+    private javax.swing.JButton deleteSongButton1;
     private javax.swing.JButton disconnect;
+    private javax.swing.JButton disconnect1;
     private javax.swing.JTextField durationSong_addSong;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -580,18 +722,29 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField nameSong_addSong;
     private javax.swing.JComboBox<String> newAlbum_alterSong;
     private javax.swing.JTextField newDuration_alterSong;
     private javax.swing.JTextField newName_alterSong;
     private javax.swing.JButton restoreDatabaseButton;
+    private javax.swing.JButton restoreDatabaseButton1;
     private javax.swing.JButton showSongs;
+    private javax.swing.JButton showSongs1;
     private javax.swing.JComboBox<String> songBox_delete;
+    private javax.swing.JComboBox<String> songBox_delete1;
     private javax.swing.JComboBox<String> songBox_update;
+    private javax.swing.JComboBox<String> songBox_update1;
     private javax.swing.JButton updateSongButton;
+    private javax.swing.JButton updateSongButton1;
     // End of variables declaration//GEN-END:variables
 }
